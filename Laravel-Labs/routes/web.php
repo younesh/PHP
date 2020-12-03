@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+ 
+/* 
+Route::get('/posts/{id}/{author}', function ($myId, $myAuther) {
+        return "id = " . $myId . " | authors : " . $myAuther; 
+});  */ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ 
+Route::get('/posts/{id}/{author?}', "HomeController@blog")->name('blog');  
+
+Route::get('/home', 'HomeController@home')->name('home');
+
+Route::get('/about', 'HomeController@about')->name('about');
+
+//
