@@ -14,16 +14,17 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
- 
-/* 
-Route::get('/posts/{id}/{author}', function ($myId, $myAuther) {
-        return "id = " . $myId . " | authors : " . $myAuther; 
-});  */ 
 
- 
-Route::get('/posts/{id}/{author?}', "HomeController@blog")->name('blog');  
+/*
+Route::get('/posts/{id}/{author}', function ($myId, $myAuther) {
+        return "id = " . $myId . " | authors : " . $myAuther;
+});  */
+
+
+Route::get('/posts/{id}/{author?}', "HomeController@blog")->name('posts');
 
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/', 'HomeController@home')->name('home');
 
 Route::get('/about', 'HomeController@about')->name('about');
 
